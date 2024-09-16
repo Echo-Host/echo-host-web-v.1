@@ -370,7 +370,19 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script>
+  const timeLimit = 5 * 60 * 60 * 1000; // 5 heures en millisecondes
+  const lastVerificationTime = localStorage.getItem('verifiedTime');
+  const currentTime = new Date().getTime();
 
+  // Si l'utilisateur n'a pas été vérifié ou si le temps limite de 5 heures est dépassé
+  if (localStorage.getItem('verified') !== 'true' || (currentTime - lastVerificationTime) >= timeLimit) {
+    // Rediriger vers la page de vérification
+    window.location.href = "verification.html";
+  }
+</script>
+
+  
 </body>
 
 </html>
