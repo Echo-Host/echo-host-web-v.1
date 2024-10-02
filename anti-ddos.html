@@ -129,14 +129,14 @@
             // Vérifie si 1 heure (3600000 ms) s'est écoulée depuis la dernière visite
             if (currentTime - lastVisit > 3600000) {
                 // Redirige vers la page d'accueil
-                window.location.href = '/'; 
+                window.location.href = 'https://echo-host.us.kg'; 
             }
         }
 
         // Redirection automatique après 0,5 seconde
         setTimeout(() => {
             localStorage.setItem('lastVisit', currentTime); // Enregistre l'heure de la visite
-            window.location.href = '/'; // Redirige vers la page d'accueil
+            window.location.href = 'https://echo-host.us.kg'; // Redirige vers la page d'accueil
         }, 500); // 0,5 seconde
     </script>
 </body>
