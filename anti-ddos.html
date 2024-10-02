@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <style type="text/css">
+        @font-face {
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 300;
+            src: url(/cf-fonts/s/dm-sans/5.0.18/latin/300/normal.woff2);
+            font-display: swap;
+        }
+        @font-face {
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 400;
+            src: url(/cf-fonts/s/dm-sans/5.0.18/latin/400/normal.woff2);
+            font-display: swap;
+        }
+        @font-face {
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 700;
+            src: url(/cf-fonts/s/dm-sans/5.0.18/latin/700/normal.woff2);
+            font-display: swap;
+        }
+
+        body, html {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            background: #161616;
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Ajouté pour centrer verticalement le contenu */
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            text-align: center;
+            margin: 0 0 20px 0;
+        }
+
+        a {
+            color: #fff;
+            border-bottom: 2px dotted;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        svg {
+            width: 75px; /* Largeur du SVG */
+        }
+
+        .pulse {
+            animation: pulse-animation 1s infinite;
+            border-radius: 50px;
+        }
+
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2); }
+            100% { box-shadow: 0 0 0 20px rgba(255, 255, 255, 0); }
+        }
+
+        .cls-1 { fill: #fff; }
+
+        .footer {
+            position: absolute;
+            bottom: 4%;
+            font-size: 70%;
+            text-align: center;
+            color: #fff;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Light mode styles */
+        @media (prefers-color-scheme: light) {
+            body {
+                color: #161616;
+                background: #fff;
+            }
+            .cls-1 { fill: #161616; }
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <svg class="pulse" viewBox="0 0 202.24 202.24" xmlns="http://www.w3.org/2000/svg">
+            <g id="Layer_2">
+                <g id="Capa_1">
+                    <path class="cls-1" d="M101.12,0A101.12,101.12,0,1,0,202.24,101.12,101.12,101.12,0,0,0,101.12,0ZM159,148.76H43.28a11.57,11.57,0,0,1-10-17.34L91.09,31.16a11.57,11.57,0,0,1,20.06,0L169,131.43a11.57,11.57,0,0,1-10,17.34Z"/>
+                    <path class="cls-1" d="M101.12,36.93h0L43.27,137.21H159L101.13,36.94Zm0,88.7a7.71,7.71,0,1,1,7.71-7.71A7.71,7.71,0,0,1,101.12,125.63Zm7.71-50.13a7.56,7.56,0,0,1-.11,1.3l-3.8,22.49a3.86,3.86,0,0,1-7.61,0l-3.8-22.49a8,8,0,0,1-.11-1.3,7.71,7.71,0,1,1,15.43,0Z"/>
+                </g>
+            </g>
+        </svg>
+        <h1>Verifying Your Browser</h1>
+        <p>We're performing some checks to make sure you're not a robot!</p>
+    </article>
+    <div class="footer">
+        <hr>
+        Enterprise Security by <a href="https://vecurity.net" target="_blank">vecurity</a>
+    </div>
+    <script>
+        // Récupère l'heure de la dernière visite depuis localStorage
+        let lastVisit = localStorage.getItem('lastVisit');
+        const currentTime = new Date().getTime();
+
+        // Vérifie si l'utilisateur doit être redirigé vers la page d'accueil
+        if (lastVisit) {
+            // Vérifie si 1 heure (3600000 ms) s'est écoulée depuis la dernière visite
+            if (currentTime - lastVisit > 3600000) {
+                // Redirige vers la page d'accueil
+                window.location.href = 'acceil.html'; 
+            }
+        }
+
+        // Redirection automatique après 0,5 seconde
+        setTimeout(() => {
+            localStorage.setItem('lastVisit', currentTime); // Enregistre l'heure de la visite
+            window.location.href = 'acceil.html'; // Redirige vers la page d'accueil
+        }, 500); // 0,5 seconde
+    </script>
+</body>
+</html>
