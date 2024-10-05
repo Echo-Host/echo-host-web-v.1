@@ -66,6 +66,7 @@
 
         svg {
             width: 75px; /* Largeur du SVG */
+            align-items: center;
         }
 
         .pulse {
@@ -134,7 +135,6 @@
             }
         }
 
-        // Redirection automatique après 0,5 seconde
         setTimeout(() => {
             localStorage.setItem('lastVisit', currentTime); // Enregistre l'heure de la visite
             window.location.href = 'https://echo-host.us.kg'; // Redirige vers la page d'accueil
