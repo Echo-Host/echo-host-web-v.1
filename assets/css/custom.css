@@ -1,0 +1,28 @@
+.backgroundcarousel {
+    background-color: #f3f5fa;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Cache les images qui dépassent */
+}
+
+.carousel {
+    display: flex;
+    transition: transform 1s ease;
+}
+
+.carousel-item {
+    min-width: 25%; /* Chaque image prend 25% de la largeur du conteneur (4 images visibles) */
+    margin-right: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.customer-logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 340px; /* Taille des logos */
+}
