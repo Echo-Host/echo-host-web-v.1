@@ -11,7 +11,7 @@ function moveSlide(step) {
   document.querySelector('.carousel').style.transform = `translateX(${offset}px)`;
   
   imageCount++; // Incrémente le compteur d'images passées
-  if (imageCount >= 10) { // Après 10 images passées, réinitialise l'animation
+  if (imageCount >= 12) {
     resetAnimation();
   }
 }
