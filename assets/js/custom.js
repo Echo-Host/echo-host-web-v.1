@@ -1,26 +1,33 @@
-let offset = 0; // Position actuelle du décalage
-const speed = 1; // Vitesse du défilement (pixels par frame)
+let index = 0;
+let imageCount = 0; // Compteur d'images passées
+let interval;
 
-function moveSlide() {
-  const carousel = document.querySelector('.carousel');
+function moveSlide(step) {
   const slides = document.querySelectorAll('.carousel-item');
-  const slideWidth = slides[0].offsetWidth; // Largeur d'une image
+  const totalSlides = slides.length;
 
-  // Décale continuellement vers la gauche
-  offset -= speed;
-
-  // Si l'image est complètement sortie de l'écran
-  if (Math.abs(offset) >= slideWidth) {
-    offset += slideWidth; // Réinitialise l'offset pour éviter les "trous"
-    carousel.appendChild(slides[0]); // Déplace la première image à la fin
+  index = (index + step + totalSlides) % totalSlides;
+  const offset = -index * (slides[0].offsetWidth + 15);
+  document.querySelector('.carousel').style.transform = `translateX(${offset}px)`;
+  
+  imageCount++; // Incrémente le compteur d'images passées
+  if (imageCount >= 15) {
+    resetAnimation();
   }
-
-  // Applique le décalage
-  carousel.style.transform = `translateX(${offset}px)`;
 }
 
-function startCarousel() {
-  setInterval(moveSlide, 16); // Appelle la fonction toutes les 16ms (~60fps)
+function autoSlide() {
+  moveSlide(1); // Déplace d'une image à la fois
 }
 
-startCarousel();
+function resetAnimation() {
+  // Réinitialise après 6 images
+  setTimeout(() => {
+    index = 0; // Réinitialise l'index à zéro
+    imageCount = 0; // Réinitialise le compteur d'images
+    moveSlide(0); // Réinitialise la position du carrousel
+  }, 1000); // Attends 1 seconde pour la réinitialisation
+}
+
+// Démarre l'animation initiale
+interval = setInterval(autoSlide, 3000);
