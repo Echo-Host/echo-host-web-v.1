@@ -4,19 +4,18 @@ const speed = 1; // Vitesse du défilement (pixels par frame)
 function moveSlide() {
   const carousel = document.querySelector('.carousel');
   const slides = document.querySelectorAll('.carousel-item');
-  const slideWidth = slides[0].offsetWidth + 15; // Largeur de l'image + marge (si applicable)
+  const slideWidth = slides[0].offsetWidth; // Largeur d'une image
 
   // Décale continuellement vers la gauche
   offset -= speed;
 
-  // Vérifie si la première image est complètement sortie de l'écran
+  // Si l'image est complètement sortie de l'écran
   if (Math.abs(offset) >= slideWidth) {
-    offset += slideWidth; // Ajuste l'offset pour éviter les sauts
-    // Déplace la première image à la fin pour maintenir l'effet de boucle
-    carousel.appendChild(slides[0]);
+    offset += slideWidth; // Réinitialise l'offset pour éviter les "trous"
+    carousel.appendChild(slides[0]); // Déplace la première image à la fin
   }
 
-  // Applique le décalage sans saccades
+  // Applique le décalage
   carousel.style.transform = `translateX(${offset}px)`;
 }
 
