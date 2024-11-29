@@ -103,27 +103,60 @@ vps end-->
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
 
 
-          <div class="promotion-banner">
-            <p>🔔 30% de Réduction avec le code : Noel30</p>
-          </div>
+  <div class="badge-container">
+    <div class="badge-icon">🔔</div>
+    <div class="badge-text">
+      50% avec le code <strong>"Noel30"</strong>
+    </div>
+  </div>
           
-          <style>
-            .promotion-banner {
-              background-color: #5ab3e8;
-              padding: 15px 25px;
-              margin: 20px auto;
-              text-align: center;
-              font-family: 'Arial', Helvetica, sans-serif;
-              font-size: 18px;
-              font-weight: bold;
-              color: #ffffff;
-              max-width: 500px;
-              border-radius: 50px;
-            }
-          
-            .promotion-banner p {
-              letter-spacing: 0.5px;
-            }
+<style>
+    .badge-container {
+      display: flex;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .badge-container::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+
+    .badge-icon {
+      background-color: #366fc4;
+      color: white;
+      border-radius: 50%;
+      padding: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      margin-right: 10px;
+      z-index: 1;
+    }
+
+    .badge-text {
+      z-index: 1;
+    }
+
+    .badge-text strong {
+      font-weight: bold;
+    }
           </style>
           
             
