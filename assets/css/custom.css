@@ -14,7 +14,7 @@
 }
 
 .carousel-item {
-    min-width: 25%; /* Chaque image prend 25% de la largeur du conteneur (4 images visibles) */
+    min-width: 20%;
     margin-right: 13px;
     display: flex;
     justify-content: center;
@@ -22,7 +22,7 @@
 }
 
 .customer-logo {
-    max-width: 100%;
+    max-width: 70%;
     height: auto;
-    max-height: 340px; /* Taille des logos */
+    max-height: 150px; /* Taille des logos */
 }
